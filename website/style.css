@@ -3,4 +3,10 @@ body{
     color: white;
     font-family: Helvetica;
     text-align: center;
+    display: flexbox;
+    align-items: center;
+}
+#textDiv{
+    text-align: right;
+    margin: 0 35%;
 }
