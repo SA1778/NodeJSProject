@@ -13,7 +13,8 @@ router.route('/')
     res.sendFile(webPath);
 }).post((req, res) => {
     let { name, address } = req.body;
-    createNewPerson(name, address);
+    console.log(`name: ${name}\naddress: ${address}`);
+    //createNewPerson(name, address);
     res.sendFile(webPath);
 });
 
