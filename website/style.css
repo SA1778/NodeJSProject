@@ -1,31 +1,55 @@
 *{
-    margin: none;
-    padding: none;
-    border: none;
+    margin: 0;
+    padding: 0;
 }
-body{
-    background-color: rgb(60, 60, 60);
-    color: white;
-    font-family: Helvetica;
+html{
+    font-size: 16px;
+}
+body {
+    font-family: Helvetica, sans-serif;
+}
+
+main{
+    padding: 2rem;
+}
+footer{
     text-align: center;
-    display: flexbox;
-    align-items: center;
+    padding: 1.5rem;
+    border-top: 1px solid black;
 }
-#textDiv{
-    text-align: right;
-    width: 15rem;
-    margin: 0 auto;
-    padding-right: 0rem;
+
+input[type="text"]{
+    align-self:left;
+    max-width: 80vw;
 }
-input[type="submit"]{
-    padding: 0.5rem 0.75rem;
-    border-radius: 0.4rem;
-    border-style: none;
-    color: white;
-    background-color: gray;
-    transition: background-color 0.3s;
-    cursor: pointer;
+
+nav {
+    overflow: hidden;
+    background-color: #333;
 }
-input[type="submit"]:hover{
-    background-color: rgba(124, 235, 85, 0.92);
+
+nav a{
+    float: left;
 }
+
+nav svg{ 
+    padding: 1rem;
+    width: 5rem;
+    height: 5rem;
+}
+
+nav svg.active{
+    fill: #0d6efd;
+    background-color: #222;
+}
+
+nav svg:hover{
+    background-color: black;
+}
+
+#random-btn{
+    margin:auto;
+}
+
+
+

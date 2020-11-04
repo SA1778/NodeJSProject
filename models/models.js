@@ -14,9 +14,9 @@ const Person = mongoose.model("Person", personSchema);
 function createNewPerson(name, address){
     let newPerson = new Person({name: name, address: address});
     newPerson.save((error)=>{
-        if(error) return console.error(error);
-        console.log('Data Saved Successfully');
-    })
+        if(error) return console.log(`[ERROR]  ${error}`);
+        console.log('[SERVER] Data Saved Successfully');
+    });
 }
 
 module.exports = createNewPerson;
