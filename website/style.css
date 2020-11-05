@@ -12,6 +12,7 @@ body {
 main{
     padding: 2rem;
 }
+
 footer{
     text-align: center;
     padding: 1.5rem;
@@ -51,5 +52,12 @@ nav svg:hover{
     margin:auto;
 }
 
-
-
+#mainMessage{
+    width: 90vw;
+    height: 50vh;
+    background: linear-gradient(45deg, purple, yellow);
+    margin: 5rem auto;
+    text-align: center;
+    align-items: center;
+    color: black;
+}
