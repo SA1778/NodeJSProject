@@ -2,21 +2,23 @@
 const mongoose = require('mongoose');
 
 //Schema
-const personSchema = new mongoose.Schema({
-    name: String,
-    address: String
+const tempSchema = new mongoose.Schema({
+    temp:    {type: Number},
+    date:    {type: Date}
 });
 
 //Models
-const Person = mongoose.model("Person", personSchema);
+const Temp = mongoose.model("Temperature", tempSchema);
 
 //Functions
-function createNewPerson(name, address){
-    let newPerson = new Person({name: name, address: address});
-    newPerson.save((error)=>{
-        if(error) return console.log(`[ERROR]  ${error}`);
-        console.log('[SERVER] Data Saved Successfully');
-    });
+function logTemperature(temp){
+    let newTemp = new Temp({temp: temp});
+    newTemp.save()
+    .then(()   => console.log('[Server] Person Saved Successfully'))
+    .catch(err => console.log(err));
 }
 
-module.exports = createNewPerson;
+module.exports = {
+    logTemperature: logTemperature,
+    Temp: Temp
+};

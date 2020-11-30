@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font: 16px Helvetica, sans-serif;
+}
+
+footer{
+    text-align: center;
+    font-size: 1rem;
+    padding: 1.5rem;
+    border-top: 1px solid black;
+}
+
+nav{
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav a{
+    float: left;
+}
+
+nav svg{
+    color: white;
+    padding: 1rem;
+    width: 5rem;
+    height: 5rem;
+}
+
+nav a.active svg{
+    fill: #0d6efd;
+    background-color: #222;
+}
+
+nav a.active svg{
+    fill: #0d6efd;
+    background-color: #222;
+}
+
+nav a svg:hover{
+    background-color: black;
+}
+
+#mainMessage{
+    background: linear-gradient(45deg, purple, orange);
+    color: black;
+    text-align: center;
+    padding: 4rem;
+}

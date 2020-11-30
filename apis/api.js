@@ -1,32 +1,27 @@
 //Import Modules, Functions, etc.
-const createNewPerson = require("../models/models");
-const path    = require('path');
+const {Temp} = require("../models/models");
 const express = require('express');
 const router  = express.Router();
 
-//Website Path
-let mainPath = path.join(__dirname, '/../website/index.html');
-let chartPath = path.join(__dirname, '/../website/chart.html');
-let formPath  = path.join(__dirname, '/../website/form.html');
 //Api's
-router.route('/')
+router.route('/data')
 .get((req, res) => {
-    res.sendFile(mainPath);
-});
-
-router.route('/chart')
-.get((req, res) => {
-    res.sendFile(chartPath);
-});
-
-router.route('/form')
-.get((req, res) => {
-    res.sendFile(formPath);
-})
+    Temp.find()
+    .then(tempData => {
+        let data = [];
+        for(const index in tempData) data.push({date: tempData[index].date, value: tempData[index].temp})
+        res.json(data);
+    })
+    .catch(err => res.statusCode(400).send(err));
+ })
 .post((req, res) => {
-    let { name, address } = req.body;
-    createNewPerson(name, address);
-    res.sendFile(formPath);
+    const newTemp = new Temp({
+        temp: req.body.temp,
+        date: new Date
+    });
+    newTemp.save()
+    .then(()   => res.send('Temperature Logged Successfully'))
+    .catch(err => res.send(err));
 })
 
 //Exports

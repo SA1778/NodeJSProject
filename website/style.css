@@ -9,17 +9,6 @@ body {
     font-family: Helvetica, sans-serif;
 }
 
-footer{
-    text-align: center;
-    padding: 1.5rem;
-    border-top: 1px solid black;
-}
-
-input[type="text"]{
-    align-self:left;
-    max-width: 80vw;
-}
-
 nav {
     overflow: hidden;
     background-color: #333;
@@ -31,8 +20,8 @@ nav a{
 
 nav svg{ 
     padding: 1rem;
-    width: 5rem;
-    height: 5rem;
+    width: 1rem;
+    height: 1rem;
 }
 
 nav svg.active{
@@ -44,20 +33,40 @@ nav svg:hover{
     background-color: black;
 }
 
-#random-btn{
-    margin:auto;
+h2{
+    text-align: center;
+}
+
+input[type="text"]{
+    align-self:left;
+    max-width: 80vw;
+}
+
+footer{
+    text-align: center;
+    padding: 1.5rem;
+    border-top: 1px solid black;
 }
 
 .main{
     padding: 3rem;
 }
 
+#random-btn{
+    margin:auto;
+}
+
+
 #mainMessage{
     overflow: auto;
     width: 100%;
     background: linear-gradient(45deg, purple, yellow);
     margin: 2rem auto;
-    padding: 30vh;
+    padding: 15rem 0;
     text-align: center;
     color: black;
 }
+
+
+
+
