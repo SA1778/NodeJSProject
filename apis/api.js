@@ -1,5 +1,5 @@
 //Import Modules, Functions, etc.
-const {Temp} = require("../models/models");
+const Temp = require("../models/models");
 const express = require('express');
 const router  = express.Router();
 
@@ -9,7 +9,8 @@ router.route('/data')
     Temp.find()
     .then(tempData => {
         let data = [];
-        for(const index in tempData) data.push({date: tempData[index].date, value: tempData[index].temp})
+        for(const index in tempData) data.push({date: tempData[index].date, value: tempData[index].value})
+        console.log(data)
         res.json(data);
     })
     .catch(err => res.statusCode(400).send(err));

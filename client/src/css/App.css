@@ -47,6 +47,32 @@ nav a svg:hover{
 #mainMessage{
     background: linear-gradient(45deg, purple, orange);
     color: black;
+    height: 50vh;
+    width: 100vw;
     text-align: center;
-    padding: 4rem;
+    display: table;
+}
+#mainMessage span{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#tooltip{
+    background-color: #AAA4;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 0.25rem;
+}
+/*   Chart   */
+.grid{
+    stroke: 0.5;
+    color: lightgray;
+}
+
+#graph-title{
+    font: normal small-caps 1.75rem Helvetica; 
+}
+.chartBtn{
+    
+    margin: 1rem auto;
 }

@@ -1,7 +1,7 @@
 {
   "name": "nodejsproject",
   "version": "1.0.0",
-  "description": "A project for me, the author, to practice programming with NodeJS and Express",
+  "description": "A project for me, the author, to practice programming with NodeJS and React",
   "main": "app.js",
   "scripts": {
     "env": "nodemon -r dotenv/config app.js"
@@ -20,11 +20,8 @@
   "dependencies": {
     "bootstrap": "^4.5.3",
     "bootstrap-icons": "^1.1.0",
-    "chart.js": "^2.9.4",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "johnny-five": "^2.0.0",
-    "lodash": "^4.17.20",
     "mongodb": "^3.6.2",
     "mongoose": "^5.10.7",
     "nodemon": "^2.0.6",
