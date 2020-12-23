@@ -4,24 +4,30 @@ const express = require('express');
 const router  = express.Router();
 
 //Api's
+router.route('/')
+.get((req, res) => {
+    res.redirect('/data');
+})
+.post((req, res) => {
+    res.redirect('/data');
+})
+
 router.route('/data')
 .get((req, res) => {
     Temp.find()
     .then(tempData => {
-        let data = [];
-        for(const index in tempData) data.push({date: tempData[index].date, value: tempData[index].value})
-        console.log(data)
-        res.json(data);
+        console.log(`[SERVER] Data Sent to ${req.ip}`);
+        res.json(tempData);
     })
-    .catch(err => res.statusCode(400).send(err));
+    .catch(err => res.send(err));
  })
 .post((req, res) => {
     const newTemp = new Temp({
-        temp: req.body.temp,
+        temperature: req.body.temperature,
         date: new Date
     });
     newTemp.save()
-    .then(()   => res.send('Temperature Logged Successfully'))
+    .then(()   => res.send('Data Logged Successfully'))
     .catch(err => res.send(err));
 })
 

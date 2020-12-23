@@ -12,13 +12,15 @@ export default class ChartContent extends Component {
         const strokeWidth = 2;
         const margin = {top: 25, right: 20, bottom: 30, left: 25};
         const width  = parseInt(d3.select('body').style('width'), 10) - margin.left - margin.right;
-        const height = (width/2.5) - margin.top - margin.bottom;
+        const height = (width/2) - margin.top - margin.bottom;
 
         //Crate Chart Canvas
         let svg = d3.select("#D3Chart")
             .append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
+            .attr("width", '100vw')
+            .attr("height", '100vh')
+            .attr('viewBox', `0 0 ${Math.max(width+margin.left+margin.right, height+margin.top+margin.bottom)} ${Math.min(width+margin.left+margin.right, height+margin.top+margin.bottom)}`)
+            .attr('preserveAspectRatio', `xMidYMid meet`)
             .append("g")
             .attr("transform", `translate( ${margin.left}, ${margin.top})`);
             
@@ -33,7 +35,7 @@ export default class ChartContent extends Component {
                 .range([margin.left, width - margin.right]);
 
                 let yScale = d3.scaleLinear()
-                    .domain([0, d3.max(data, d => d.value)]).nice()
+                    .domain([0, d3.max(data, d => d.temperature)]).nice()
                     .range([height - margin.bottom, margin.top]);
                 
 
@@ -75,7 +77,7 @@ export default class ChartContent extends Component {
                 const Line = d3.area()
                     .x(d => xScale(d.date))
                     .y0(yScale(0))
-                    .y1(d => yScale(d.value))
+                    .y1(d => yScale(d.temperature))
                     .curve(d3.curveBasis)
 
                 //Add Graph
@@ -136,26 +138,26 @@ export default class ChartContent extends Component {
                         .attr("x1", xScale(d.date))
                         .attr("y1", yScale(0))
                         .attr("x2", xScale(d.date))
-                        .attr("y2", yScale(d.value) - strokeWidth)
+                        .attr("y2", yScale(d.temperature) - strokeWidth)
                         .style("opacity", 1);
                 }
                 const mousemove = (e, d) => {
-                    if(xScale(d.date) > width/2){
+                    if(xScale(d.date) >= width/2){
                         tooltip
-                            .html(`Temp: ${d.value}&deg;C<br>Date: ${d.date.toDateString()}`)
+                            .html(`Temp: ${d.temperature}&deg;C<br>Date: ${d.date.toDateString()}`)
                             .style("left", `${e.pageX-15-parseInt(d3.select("#tooltip").style("width"),10)}px`)
-                            .style("top",  `${e.pageY-30}px`);
+                            .style("top",  `${e.pageY-parseInt(d3.select('#tooltip').style("height"),10)/2}px`);
                     }else{
                         tooltip
-                            .html(`Temp: ${d.value}&deg;C<br>Date: ${d.date.toDateString()}`)
+                            .html(`Temp: ${d.temperature}&deg;C<br>Date: ${d.date.toDateString()}`)
                             .style("left", `${e.pageX+15}px`)
-                            .style("top",  `${e.pageY-30}px`);
+                            .style("top",  `${e.pageY-parseInt(d3.select('#tooltip').style("height"),10)/2}px`);
                     }
                     tooltipLine
                         .attr("x1", xScale(d.date))
                         .attr("y1", yScale(0))
                         .attr("x2", xScale(d.date))
-                        .attr("y2", yScale(d.value))
+                        .attr("y2", yScale(d.temperature))
                         .style("stroke-linecap", "round")
                 }
                 const mouseleave = () => {
@@ -171,7 +173,7 @@ export default class ChartContent extends Component {
                         .attr("x", d => xScale(d.date))
                         .attr("y", d => margin.top)
                         .attr("width", (d, i) => {
-                            if(i === 4) return 0;
+                            if(i === data.length-1) return 0;
                             return xScale(data[i+1].date) - xScale(data[i].date);
                         })
                         .attr("height", d => height - margin.top - margin.bottom)
@@ -184,12 +186,11 @@ export default class ChartContent extends Component {
         .catch(err => console.error(err));
     }
 
+
     render() {
         document.title = "Website | Data";
         return(
-                <div>
-                    <div id="D3Chart"/>
-                </div>
+                <div id="D3Chart"/>
     );
     }
 }

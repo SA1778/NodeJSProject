@@ -2,10 +2,40 @@
     margin: 0;
     padding: 0;
 }
+ /* Extra small devices (phones, 600px and down) */
+ @media only screen and (max-width: 600px) {
+    html{
+        font: 16px Helvetica, sans-serif;
+    }
+ }
 
-html{
-    font: 16px Helvetica, sans-serif;
-}
+ /* Small devices (portrait tablets and large phones, 600px and up) */
+ @media only screen and (min-width: 600px) {
+    html{
+        font: 16px Helvetica, sans-serif;
+    }
+ }
+ 
+ /* Medium devices (landscape tablets, 768px and up) */
+ @media only screen and (min-width: 768px) {
+    html{
+        font: 16px Helvetica, sans-serif;
+    }
+ }
+ 
+ /* Large devices (laptops/desktops, 992px and up) */
+ @media only screen and (min-width: 992px) {
+    html{
+        font: 16px Helvetica, sans-serif;
+    }
+ }
+ 
+ /* Extra large devices (large laptops and desktops, 1200px and up) */
+ @media only screen and (min-width: 1200px) {
+    html{
+        font: 24px Helvetica, sans-serif;
+    }
+ } 
 
 footer{
     text-align: center;
@@ -56,14 +86,14 @@ nav a svg:hover{
     display: table-cell;
     vertical-align: middle;
 }
-
+/*   Chart   */
 #tooltip{
     background-color: #AAA4;
     border: 2px solid black;
     border-radius: 5px;
     padding: 0.25rem;
 }
-/*   Chart   */
+
 .grid{
     stroke: 0.5;
     color: lightgray;
@@ -71,8 +101,4 @@ nav a svg:hover{
 
 #graph-title{
     font: normal small-caps 1.75rem Helvetica; 
-}
-.chartBtn{
-    
-    margin: 1rem auto;
 }

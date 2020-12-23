@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 //Schema
 const tempSchema = new mongoose.Schema({
-    value: {type: Number},
+    temperature: {type: Number},
     date:  {type: Date}
 });
 
