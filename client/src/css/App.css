@@ -2,51 +2,17 @@
     margin: 0;
     padding: 0;
 }
- /* Extra small devices (phones, 600px and down) */
- @media only screen and (max-width: 600px) {
-    html{
-        font: 16px Helvetica, sans-serif;
-    }
- }
-
- /* Small devices (portrait tablets and large phones, 600px and up) */
- @media only screen and (min-width: 600px) {
-    html{
-        font: 16px Helvetica, sans-serif;
-    }
- }
  
- /* Medium devices (landscape tablets, 768px and up) */
- @media only screen and (min-width: 768px) {
-    html{
-        font: 16px Helvetica, sans-serif;
-    }
- }
- 
- /* Large devices (laptops/desktops, 992px and up) */
- @media only screen and (min-width: 992px) {
-    html{
-        font: 16px Helvetica, sans-serif;
-    }
- }
- 
- /* Extra large devices (large laptops and desktops, 1200px and up) */
- @media only screen and (min-width: 1200px) {
-    html{
-        font: 24px Helvetica, sans-serif;
-    }
- } 
-
 footer{
     text-align: center;
-    font-size: 1rem;
+    font-size: 1rem !important;
     padding: 1.5rem;
     border-top: 1px solid black;
 }
 
 nav{
     overflow: hidden;
-    background-color: #333;
+    background-color: #444;
 }
 
 nav a{
@@ -74,31 +40,160 @@ nav a svg:hover{
     background-color: black;
 }
 
+#smallNav{display: none;}
+
 #mainMessage{
-    background: linear-gradient(45deg, purple, orange);
-    color: black;
+    display: table;
+    background: linear-gradient(45deg, #5000ff, #ffa500);
     height: 50vh;
     width: 100vw;
-    text-align: center;
-    display: table;
 }
 #mainMessage span{
     display: table-cell;
     vertical-align: middle;
+    text-align: center;
+    font: 100 6rem Helvetica;
 }
+.collapsed{
+    overflow: hidden;
+    background-color: #444;
+    max-height: 0;
+    width: 100vw;
+    color: white;
+    transition: max-height 0.3s ease-out;
+}
+
 /*   Chart   */
+
+#screenSizeMessage{display: none;}
+
 #tooltip{
     background-color: #AAA4;
     border: 2px solid black;
     border-radius: 5px;
     padding: 0.25rem;
+    pointer-events: none;
 }
 
 .grid{
     stroke: 0.5;
     color: lightgray;
 }
-
-#graph-title{
-    font: normal small-caps 1.75rem Helvetica; 
+#D3Chart svg{
+    width: 100vw;
+    height: 80vh;
+    pointer-events: none;
 }
+.tooltipCircle{
+    cursor: pointer;
+    pointer-events: all !important;
+}
+.graph-title{
+    font: 1rem Verdana;
+    text-decoration: underline;
+}
+.label{
+    font: 300 0.75rem Verdana;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    html{font: 12px Helvetica, sans-serif;}
+
+    #D3Chart{display: none;}
+    
+    /*Homepage Message*/
+    #mainMessage{height: 40vh;}
+    #screenSizeMessage{
+        display: table;
+        height:  50vh;
+        width:   100vw;
+        text-align: center;
+        background: repeating-linear-gradient(-45deg, 
+        #777,
+        #777 20px,
+        #AAA 20px,
+        #AAA 50px)
+    }
+    #screenSizeMessage span{
+        display: table-cell;
+        vertical-align: middle;
+        font: bold 2rem helvetica;
+    }
+    /*Navbar*/
+    #largeNav{display: none;}
+
+    #smallNav{
+        display: table;
+        width: 100vw;
+        height: 60px;
+        background-color: #444;
+    }
+    a.active{
+        color: #0044aa;
+    }
+    .menuButton{
+        display: table-cell;
+        vertical-align: middle;
+        width: 30px;
+        height: 20px;
+        margin: 0 auto;
+    }
+    section{
+        display: block;
+        width: min-content;
+        margin: auto;
+    }
+    section:hover{cursor: pointer;}
+    section div{
+        width: 3rem;
+        height: 0.375rem;
+        background-color: white;
+        margin: 0.25rem auto 0 auto;
+        border-radius: 0.375rem;
+        transition: 0.4s;
+    }
+    path{transition: d 0.4s;}
+    [aria-expanded]{
+        display: block;
+        margin: auto;
+    }
+     [aria-expanded="true"] path{
+        stroke-linecap: round; 
+         d: path("M1,1 9,9 M5,5 5,5 M1,9 9,1")
+     }
+
+    .collapsible{
+        height: 84px;
+        max-height: 84px;
+        display: block;
+    }
+    .collapsed{font: 300 2rem Helvetica;}
+    .collapsed a{
+        display: inherit;
+        padding: 0.5rem;
+        width: min-content;
+        margin: auto;
+    }
+    .collapsed a:hover{text-decoration: none;}
+ }
+
+ /* Small devices (portrait tablets and large phones, 600px and up) */
+ @media only screen and (min-width: 600px) {
+    html{font: 12px Helvetica, sans-serif;}
+ }
+ 
+ /* Medium devices (landscape tablets, 768px and up) */
+ @media only screen and (min-width: 768px) {
+    html{font: 16px Helvetica, sans-serif;}
+ }
+ 
+ /* Large devices (laptops/desktops, 992px and up) */
+ @media only screen and (min-width: 992px) {
+    html{font: 20px Helvetica, sans-serif;}
+}
+ 
+ /* Extra large devices (large laptops and desktops, 1200px and up) */
+ @media only screen and (min-width: 1200px) {
+    html{font: 22px Helvetica, sans-serif;}
+ } 

@@ -6,7 +6,7 @@ export default class Home extends Component {
     }
     render(){
         return (
-                <div id="mainMessage" className="display-1"><span>Welcome</span></div>
+                <div id="mainMessage"><span>Welcome</span></div>
         );
     }
 }
