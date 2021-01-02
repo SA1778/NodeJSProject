@@ -28,7 +28,7 @@ export default class ChartContent extends Component {
         let graph = svg.append("g").attr("class", "graph-container");
         let tooltipBox = svg.append("g").attr("class", "tooltip-container");
             
-        await d3.json("http://10.1.10.64:5000/data").then( data => 
+        await d3.json("https://samabraham.tech/data").then( data => 
             {
                 data.forEach(d => {
                     d.date  = d3.timeParse("%Y-%m-%dT%H:%M:%S.%LZ")(d.date)
@@ -182,6 +182,13 @@ export default class ChartContent extends Component {
         }
         )
         .catch(err => console.error(err));
+	
+	// Adding Data Message At the Bottom of the Page
+	d3.select("#D3Chart")
+	  .append("i")
+	  .style("font-size", "0.5rem")
+ 	  .style("margin-left", "10px")
+	  .html("The Raw Data Can Be Found at: <a href=\"https://www.samabraham.tech/data\" target=\"_blank\">https://www.samabraham.tech/data</a>");
     }
 
 

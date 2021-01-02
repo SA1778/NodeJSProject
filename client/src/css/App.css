@@ -56,6 +56,7 @@ nav a svg:hover{
 }
 .collapsed{
     overflow: hidden;
+    display: none;
     background-color: #444;
     max-height: 0;
     width: 100vw;
@@ -158,17 +159,22 @@ nav a svg:hover{
         display: block;
         margin: auto;
     }
-     [aria-expanded="true"] path{
+    [aria-expanded]:hover{
+	cursor: pointer;
+    }
+    [aria-expanded="true"] path{
         stroke-linecap: round; 
-         d: path("M1,1 9,9 M5,5 5,5 M1,9 9,1")
-     }
+        d: path("M1,1 9,9 M5,5 5,5 M1,9 9,1")
+    }
 
     .collapsible{
         height: 84px;
         max-height: 84px;
-        display: block;
     }
-    .collapsed{font: 300 2rem Helvetica;}
+    .collapsed{
+	font: 300 2rem Helvetica;
+	display: block;
+    }
     .collapsed a{
         display: inherit;
         padding: 0.5rem;

@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 
 //Middleware
 app.use((req, res, next) => {
-    res.header({"Access-Control-Allow-Origin":"*"});
+    res.header({"Access-Control-Allow-Origin":"https://www.samabraham.tech"});
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-Withm Content-Type, Accept");
     next();
 });
