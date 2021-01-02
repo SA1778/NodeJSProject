@@ -9,7 +9,7 @@ router.route('/data')
 .get((req, res) => {
     Temp.find()
     .then(tempData => {
-        res.json(tempData); //sendstatus 200
+        res.json(tempData); //Sendstatus 200
     })
     .catch(err => res.send(err)); //Sendstatus 500
  })
