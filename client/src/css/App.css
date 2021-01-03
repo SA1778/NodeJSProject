@@ -162,6 +162,8 @@ nav a svg:hover{
     [aria-expanded]:hover{
 	cursor: pointer;
     }
+	
+    /*Transition Here only works in browsers with the blink render engine like Google Chrome or Microsoft Edge*/
     [aria-expanded="true"] path{
         stroke-linecap: round; 
         d: path("M1,1 9,9 M5,5 5,5 M1,9 9,1")
