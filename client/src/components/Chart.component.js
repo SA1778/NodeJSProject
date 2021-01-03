@@ -193,7 +193,7 @@ export default class ChartContent extends Component {
 
 
     render() {
-        document.title = "Website | Data";
+        document.title = "Website | Chart";
         return(
             <div>
                 <div id="D3Chart"/>
